@@ -13,11 +13,11 @@ public class PrescriptionContext :DbContext
     {
         
     }
-    public virtual DbSet<Medicament> Medicament { get; set; }
-    public virtual DbSet<Prescription> Prescription { get; set; }
+    public virtual DbSet<Medicament> Medicaments { get; set; }
+    public virtual DbSet<Prescription> Prescriptions { get; set; }
     public virtual DbSet<Patient> Patients{ get; set; }
     public virtual DbSet<PrescriptionMedicament> PrescriptionMedicaments { get; set; }
-    public virtual DbSet<Doctor> Doctor { get; set; }
+    public virtual DbSet<Doctor> Doctors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -26,7 +26,7 @@ public class PrescriptionContext :DbContext
             new Doctor(){IdDoctor = 2,FirstName="Ktos",LastName="Jakis",Email="aa@aa"}
         );
         modelBuilder.Entity<Patient>().HasData(
-            new Patient(){IdPatient = 1,FirstName = "Pacjent",Birthdate = new DateTime(2000,1,1)}
+            new Patient(){IdPatient = 1,FirstName = "Pacjent",LastName = "Pacjentowski",Birthdate = new DateTime(2000,1,1)}
         );
         modelBuilder.Entity<Prescription>().HasData(
             new Prescription(){IdPrescription = 1,Date = new DateTime(2000,1,1),DueDate = new DateTime(2020,1,1),IdDoctor = 1,IdPatient = 1}

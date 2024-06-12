@@ -16,7 +16,6 @@ public class Patient
     public string LastName { get; set; }
     
     [Required]
-
     public DateTime Birthdate { get; set; }
     public List<Prescription> Prescriptions { get; set; }= new List<Prescription>();
 

@@ -22,7 +22,7 @@ public class DbService :IDbService
     {
         foreach (ExistMedicamentDTO medicament in medicamentDtos)
         {
-            if (await Context.Medicament.FindAsync(medicament.id) == null)
+            if (await Context.Medicaments.FindAsync(medicament.id) == null)
             {
                 throw new Exception();
             }

@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices.JavaScript;
+using Microsoft.EntityFrameworkCore;
 
 namespace APBD10.Models;
 [Table("prescription")]
+[PrimaryKey(nameof(IdPrescription))]  
 public class Prescription
 {
     [Key]
@@ -19,7 +21,7 @@ public class Prescription
     public int IdDoctor { get; set; }
     
     [ForeignKey(nameof(IdPatient))] public Patient IdPatientNavigation { get; set; }
-    [ForeignKey(nameof(IdDoctor))] public Patient IdDoctorNavigation { get; set; }
+    [ForeignKey(nameof(IdDoctor))] public Doctor IdDoctorNavigation { get; set; }
     
     public List<PrescriptionMedicament> PrescriptionMedicaments { get; set; } = new List<PrescriptionMedicament>();
 

@@ -48,7 +48,7 @@ public class PrescriptionController :ControllerBase
 
         using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
         {
-            var p = Context.Prescription.Add(
+            var p = Context.Prescriptions.Add(
                 new Prescription()
                 {
                     Date = addPrescriptionDto.Date,
